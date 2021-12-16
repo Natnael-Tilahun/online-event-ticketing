@@ -36,7 +36,7 @@ const Confirmation = ({ ninja }) => {
 
   return (
     <div className="container w-lg-50 w-xs-100  p-5  overflow-auto bg-light  shadow rounded-3 ">
-      <p className="text-center fs-4 fw-bold pb-2"> Get Your Ticket</p>
+      <p className="text-center fs-4 fw-bold pb-2"> Confirm Your Payment</p>
       <div className="row   gx-0 align-items-center justify-content-center">
         <div className="card col-12 ">
           <div className="card-header">Event Details</div>
@@ -49,18 +49,18 @@ const Confirmation = ({ ninja }) => {
         </div>
       </div>
       <Form
-        className="row g-3 needs-validation justify-content-center"
+        className="row g-3 needs-validation justify-content-center pt-2"
         novalidate
       >
         <div className="">
           <label for="validationCustom01" className="form-label">
-            Phone
+            OTP
           </label>
           <input
             type="number"
             className="form-control"
             id="validationCustom01"
-            placeholder="please enter your phone number"
+            placeholder="please enter your OTP Code?"
             required
           />
           <div className="valid-feedback">Looks good!</div>
