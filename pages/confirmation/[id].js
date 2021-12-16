@@ -107,7 +107,7 @@ const Details = ({ ninja }) => {
           >
             Back
           </Button>
-          <Link href={'/otp/' + ninja.id} key={ninja.id}>
+          <Link href={'/otp/' + ninja.id} key={ninja.id} passHref>
             <Button
               className="btn mx-4 px-4"
               type="submit"

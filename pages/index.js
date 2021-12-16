@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from '../styles/Home.module.css';
 import { Button, Card } from 'react-bootstrap';
 import logo from '../public/logo.png';
@@ -48,7 +49,11 @@ const Ninjas = ({ ninjas }) => {
                     1000 ETB
                   </li>
                 </ul>
-                <Link href={'/confirmation/' + ticket.id} key={ticket.id}>
+                <Link
+                  href={'/confirmation/' + ticket.id}
+                  key={ticket.id}
+                  passHref
+                >
                   <a
                     href="#"
                     className="btn btn-primary  d-flex justify-content-center mt-2"

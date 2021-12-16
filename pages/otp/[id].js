@@ -76,7 +76,7 @@ const Confirmation = ({ ninja }) => {
           >
             Back
           </Button>
-          <Link href="otp/otp">
+          <Link href="otp/otp" passHref>
             <Button
               href="#"
               className="btn mx-4"

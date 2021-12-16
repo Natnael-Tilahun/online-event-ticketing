@@ -6,9 +6,9 @@ const Footer = () => {
     <footer className={styles.footer}>
       {'Copyright © CBE '}
       {new Date().getFullYear()}{' '}
-      <span className={styles.logo}>
+      {/* <span className={styles.logo}>
         <Image src="/logo.png" alt="Vercel Logo" width={50} height={25} />
-      </span>
+      </span> */}
     </footer>
   );
 };
