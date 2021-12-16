@@ -39,7 +39,7 @@ const Details = ({ ninja }) => {
     router.push('/otp/otp');
   };
   return (
-    <div className="container w-50  p-5  overflow-auto bg-light  shadow rounded-3 ">
+    <div className="container w-lg-50 w-sm-100  p-5  overflow-auto bg-light  shadow rounded-3 ">
       <p className="text-center fs-4 fw-bold pb-2"> Get Your Ticket</p>
       <div className="row   gx-0 align-items-center justify-content-center">
         <div className="card col-12 ">
@@ -101,7 +101,7 @@ const Details = ({ ninja }) => {
         <div className="col-12">
           {/* <Link href="/otp/otp"> */}
           <Button
-            className="btn mr-4 px-4"
+            className="btn mr-4 px-lg-4 p-sm-1"
             onClick={backHandler}
             style={{ backgroundColor: 'purple', color: 'white' }}
           >

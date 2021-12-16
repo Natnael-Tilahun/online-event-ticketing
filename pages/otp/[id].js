@@ -35,7 +35,7 @@ const Confirmation = ({ ninja }) => {
   };
 
   return (
-    <div className="container w-50  p-5  overflow-auto bg-light  shadow rounded-3 ">
+    <div className="container w-lg-50 w-xs-100  p-5  overflow-auto bg-light  shadow rounded-3 ">
       <p className="text-center fs-4 fw-bold pb-2"> Get Your Ticket</p>
       <div className="row   gx-0 align-items-center justify-content-center">
         <div className="card col-12 ">
@@ -69,7 +69,7 @@ const Confirmation = ({ ninja }) => {
         <div className="col-12">
           <Button
             href="#"
-            className="btn mr-4 px-4"
+            className="btn mr-lg-4 px-lg-4 mr-xs-2 px-xs-2"
             onClick={backHandler}
             //   type="submit"
             style={{ backgroundColor: 'purple', color: 'white' }}
@@ -79,7 +79,7 @@ const Confirmation = ({ ninja }) => {
           <Link href="otp/otp" passHref>
             <Button
               href="#"
-              className="btn mx-4"
+              className="btn mx-lg-4 mx-md-2"
               //   type="submit"
               style={{ backgroundColor: 'purple', color: 'white' }}
             >
