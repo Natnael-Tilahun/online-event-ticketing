@@ -79,7 +79,7 @@ const Confirmation = ({ ninja }) => {
           <Link href="otp/otp" passHref>
             <Button
               href="#"
-              className="btn mx-lg-4 mx-md-2"
+              className="btn mx-4"
               //   type="submit"
               style={{ backgroundColor: 'purple', color: 'white' }}
             >
