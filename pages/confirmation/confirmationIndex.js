@@ -1,6 +1,7 @@
-import { Button, Form } from 'react-bootstrap';
 import Link from 'next/link';
+import { Button, Form } from 'react-bootstrap';
 import router, { useRouter } from 'next/router';
+import Ninjas from '../index1';
 
 export const getStaticPaths = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -28,20 +29,31 @@ export const getStaticProps = async (context) => {
   };
 };
 
-const Confirmation = ({ ninja }) => {
+const Details = ({ ninja }) => {
   const router = useRouter();
+  const amountOfTicket = 1;
+  const eventPrice = 1000;
+  const onChangeHandler = () => {
+    const amountOfTicket = document.querySelector('.form-select').value;
+    const eventpriceLabel = document.querySelector('.event-price');
+    const eventPrice = amountOfTicket * 1000;
+    eventpriceLabel.innerHTML = eventPrice;
+  };
   const backHandler = () => {
     router.back();
   };
 
+  const routerHandler = () => {
+    router.push('/otp/otp');
+  };
   return (
-    <div className="container w-lg-50 w-xs-100  p-5  overflow-auto bg-light  shadow rounded-3 ">
-      <p className="text-center fs-4 fw-bold pb-2"> Confirm Your Payment</p>
+    <div className="container w-lg-50 w-sm-100  p-5  overflow-auto bg-light  shadow rounded-3 ">
+      <p className="text-center fs-4 fw-bold pb-2"> Get Your Ticket</p>
       <div className="row   gx-0 align-items-center justify-content-center">
         <div className="card col-12 ">
           <div className="card-header">Event Details</div>
           <div className="card-body">
-            <h5 className="card-title">Evet Name: {ninja.name}</h5>
+            <h5 className="card-title">Evet Name:{ninja.name}</h5>
             <p className="card-text">Event location: {ninja.email}</p>
             <p className="card-text">Event Date: {ninja.website}</p>
             <h5 className="card-title" style={{ color: 'purple' }}>
@@ -51,47 +63,75 @@ const Confirmation = ({ ninja }) => {
         </div>
       </div>
       <Form
-        className="row g-3 needs-validation justify-content-center pt-2"
+        className="row g-3 needs-validation justify-content-center"
         novalidate
       >
         <div className="">
           <label for="validationCustom01" className="form-label">
-            OTP
+            Phone
           </label>
           <input
             type="number"
             className="form-control"
             id="validationCustom01"
-            placeholder="please enter your OTP Code?"
+            placeholder="please enter your phone number"
+            required
+          />
+          <div className="valid-feedback">Looks good!</div>
+        </div>
+        <div className="">
+          <label for="validationCustom02" className="form-label">
+            PIN Number
+          </label>
+          <input
+            type="number"
+            className="form-control"
+            id="validationCustom02"
+            placeholder="please enter your pin number"
             required
           />
           <div className="valid-feedback">Looks good!</div>
         </div>
 
+        <div className="">
+          <label for="validationCustom05" className="form-label">
+            Date of Birth
+          </label>
+          <input
+            type="date"
+            className="form-control"
+            id="validationCustom05"
+            required
+          />
+          <div className="invalid-feedback">
+            Please provide a valid birth date.
+          </div>
+        </div>
+
         <div className="col-12">
+          {/* <Link href="/otp/otp"> */}
           <Button
-            href="#"
-            className="btn mr-lg-4 px-lg-4 mr-xs-2 px-xs-2 border-0"
+            className="btn mr-4 px-lg-4 p-sm-1"
             onClick={backHandler}
-            //   type="submit"
             style={{ backgroundColor: 'purple', color: 'white' }}
           >
             Back
           </Button>
-          <Link href={'/invoice/' + ninja.id} key={ninja.id} passHref>
+          <Link href={'/otp/' + ninja.id} key={ninja.id} passHref>
             <Button
-              href="#"
-              className="btn mx-4 border-0"
-              //   type="submit"
+              className="btn mx-4 px-4"
+              type="submit"
+              // onClick={routerHandler}
               style={{ backgroundColor: 'purple', color: 'white' }}
             >
               Next
             </Button>
           </Link>
+          {/* </Link> */}
         </div>
       </Form>
     </div>
   );
 };
 
-export default Confirmation;
+export default Details;

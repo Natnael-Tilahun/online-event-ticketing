@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Button, Form } from 'react-bootstrap';
 import router, { useRouter } from 'next/router';
-import Ninjas from '..';
+import Ninjas from '../index1';
 
 export const getStaticPaths = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -29,14 +29,22 @@ export const getStaticProps = async (context) => {
   };
 };
 
-const Details = ({ ninja }) => {
+const ConfirmationIndex = ({ ninja }) => {
   const router = useRouter();
+  const amountOfTicket = 1;
+  const eventPrice = 1000;
+  const onChangeHandler = () => {
+    const amountOfTicket = document.querySelector('.form-select').value;
+    const eventpriceLabel = document.querySelector('.event-price');
+    const eventPrice = amountOfTicket * 1000;
+    eventpriceLabel.innerHTML = eventPrice;
+  };
   const backHandler = () => {
     router.back();
   };
 
   const routerHandler = () => {
-    router.push('/otp/otp');
+    router.push('/otp/otpIndex');
   };
   return (
     <div className="container w-lg-50 w-sm-100  p-5  overflow-auto bg-light  shadow rounded-3 ">
@@ -45,10 +53,15 @@ const Details = ({ ninja }) => {
         <div className="card col-12 ">
           <div className="card-header">Event Details</div>
           <div className="card-body">
-            <h5 className="card-title">Evet Name:{ninja.name}</h5>
+            <h5 className="card-title">Evet Name: {ninja.name}</h5>
             <p className="card-text">Event location: {ninja.email}</p>
             <p className="card-text">Event Date: {ninja.website}</p>
-            <h5 className="card-title">Evet Price: 1000 ETB</h5>
+            <div className="w-20">
+              <h5 className="card-title me-4 " style={{ color: 'purple' }}>
+                Evet Price: <span className="event-price">{eventPrice}</span>{' '}
+                ETB
+              </h5>
+            </div>
           </div>
         </div>
       </div>
@@ -56,6 +69,26 @@ const Details = ({ ninja }) => {
         className="row g-3 needs-validation justify-content-center"
         novalidate
       >
+        <div className="pt-3">
+          <label for="validationCustom01" className="form-label">
+            Number of tickets
+          </label>
+          <select
+            className="form-select "
+            aria-label="Default select example"
+            onChange={onChangeHandler}
+          >
+            <option selected disabled>
+              Select the amount of ticket
+            </option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+        </div>
         <div className="">
           <label for="validationCustom01" className="form-label">
             Phone
@@ -101,7 +134,7 @@ const Details = ({ ninja }) => {
         <div className="col-12">
           {/* <Link href="/otp/otp"> */}
           <Button
-            className="btn mr-4 px-lg-4 p-sm-1"
+            className="btn mr-4 px-lg-4 p-sm-1 border-0"
             onClick={backHandler}
             style={{ backgroundColor: 'purple', color: 'white' }}
           >
@@ -109,7 +142,7 @@ const Details = ({ ninja }) => {
           </Button>
           <Link href={'/otp/' + ninja.id} key={ninja.id} passHref>
             <Button
-              className="btn mx-4 px-4"
+              className="btn mx-4 px-4 border-0"
               type="submit"
               // onClick={routerHandler}
               style={{ backgroundColor: 'purple', color: 'white' }}
@@ -124,4 +157,4 @@ const Details = ({ ninja }) => {
   );
 };
 
-export default Details;
+export default ConfirmationIndex;

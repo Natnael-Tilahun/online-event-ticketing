@@ -2,36 +2,13 @@ import { Button, Form } from 'react-bootstrap';
 import Link from 'next/link';
 import router, { useRouter } from 'next/router';
 
-export const getStaticPaths = async () => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/users');
-  const data = await res.json();
-
-  // map data to an array of path objects with params (id)
-  const paths = data.map((ninja) => {
-    return {
-      params: { id: ninja.id.toString() },
-    };
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-export const getStaticProps = async (context) => {
-  const id = context.params.id;
-  const res = await fetch('https://jsonplaceholder.typicode.com/users/' + id);
-  const data = await res.json();
-
-  return {
-    props: { ninja: data },
-  };
-};
-
-const Confirmation = ({ ninja }) => {
+const OtpIndex = () => {
   const router = useRouter();
   const backHandler = () => {
     router.back();
+  };
+  const routerHandler = () => {
+    router.push('/invoice/invoiceIndex');
   };
 
   return (
@@ -41,10 +18,10 @@ const Confirmation = ({ ninja }) => {
         <div className="card col-12 ">
           <div className="card-header">Event Details</div>
           <div className="card-body">
-            <h5 className="card-title">Evet Name: {ninja.name}</h5>
-            <p className="card-text">Event location: {ninja.email}</p>
-            <p className="card-text">Event Date: {ninja.website}</p>
-            <h5 className="card-title" style={{ color: 'purple' }}>
+            <h5 className="card-title">Evet Name: Christmas consert</h5>
+            <p className="card-text">Event location: Addis Abeba,Hilon</p>
+            <p className="card-text">Event Date: january 5, 2022</p>
+            <h5 className="card-title " style={{ color: 'purple' }}>
               Evet Price: 1000 ETB
             </h5>
           </div>
@@ -78,20 +55,21 @@ const Confirmation = ({ ninja }) => {
           >
             Back
           </Button>
-          <Link href={'/invoice/' + ninja.id} key={ninja.id} passHref>
-            <Button
-              href="#"
-              className="btn mx-4 border-0"
-              //   type="submit"
-              style={{ backgroundColor: 'purple', color: 'white' }}
-            >
-              Next
-            </Button>
-          </Link>
+          {/* <Link href="otp/otp" passHref> */}
+          <Button
+            href="#"
+            className="btn mx-4 border-0 px-lg-4 mr-xs-2 px-xs-2"
+            type="submit"
+            onClick={routerHandler}
+            style={{ backgroundColor: 'purple', color: 'white' }}
+          >
+            Next
+          </Button>
+          {/* </Link> */}
         </div>
       </Form>
     </div>
   );
 };
 
-export default Confirmation;
+export default OtpIndex;
