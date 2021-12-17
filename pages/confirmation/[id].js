@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Button, Form } from 'react-bootstrap';
 import router, { useRouter } from 'next/router';
-import Ninjas from '../index1';
 
 export const getStaticPaths = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -43,9 +42,9 @@ const ConfirmationIndex = ({ ninja }) => {
     router.back();
   };
 
-  const routerHandler = () => {
-    router.push('/otp/otpIndex');
-  };
+  // const routerHandler = () => {
+  //   router.push('/otp/otpIndex');
+  // };
   return (
     <div className="container w-lg-50 w-sm-100  p-5  overflow-auto bg-light  shadow rounded-3 ">
       <p className="text-center fs-4 fw-bold pb-2"> Get Your Ticket</p>
