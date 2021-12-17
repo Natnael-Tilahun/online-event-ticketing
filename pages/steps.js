@@ -34,7 +34,10 @@ const Steps = () => {
         Lets see how it works
       </p>
       {data.map((item) => (
-        <div className="col-md-6 col-lg-2 text-center text-md-start mt-3 mb-5 p-lg-5 p-xs-2  rounded-3  mx-4 ">
+        <div
+          className="col-md-6 col-lg-2 text-center text-md-start mt-3 mb-5 p-lg-5 p-xs-2  rounded-3  mx-4 "
+          key={item.id}
+        >
           <p className="">
             <i
               className="fw-bolder fs-6 rounded-circle text-light p-lg-3 p-3 border  border-2 "

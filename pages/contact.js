@@ -19,9 +19,7 @@ const Contact = () => {
         novalidate
       >
         <div className="col-6">
-          <label for="validationCustom01" className="form-label">
-            Name
-          </label>
+          <label className="form-label">Name</label>
           <input
             type="text"
             className="form-control"
@@ -32,9 +30,7 @@ const Contact = () => {
           <div className="valid-feedback">Looks good!</div>
         </div>
         <div className="col-6">
-          <label for="validationCustom02" className="form-label">
-            Email
-          </label>
+          <label className="form-label">Email</label>
           <input
             type="email"
             className="form-control"
@@ -45,9 +41,7 @@ const Contact = () => {
           <div className="valid-feedback">Looks good!</div>
         </div>
         <div className="">
-          <label for="validationCustom02" className="form-label">
-            Subject
-          </label>
+          <label className="form-label">Subject</label>
           <input
             type="text"
             className="form-control"
@@ -58,11 +52,9 @@ const Contact = () => {
           <div className="valid-feedback">Looks good!</div>
         </div>
         <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">
-            Message
-          </label>
+          <label className="form-label">Message</label>
           <textarea
-            class="form-control"
+            className="form-control"
             id="exampleFormControlTextarea1"
             placeholder="Your message"
             rows="4"

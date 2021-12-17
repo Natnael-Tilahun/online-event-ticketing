@@ -55,9 +55,7 @@ const Confirmation = ({ ninja }) => {
         novalidate
       >
         <div className="">
-          <label for="validationCustom01" className="form-label">
-            OTP
-          </label>
+          <label className="form-label">OTP</label>
           <input
             type="number"
             className="form-control"

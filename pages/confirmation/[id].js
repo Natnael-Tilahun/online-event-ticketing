@@ -69,9 +69,7 @@ const ConfirmationIndex = ({ ninja }) => {
         novalidate
       >
         <div className="pt-3">
-          <label for="validationCustom01" className="form-label">
-            Number of tickets
-          </label>
+          <label className="form-label">Number of tickets</label>
           <select
             className="form-select "
             aria-label="Default select example"
@@ -89,9 +87,7 @@ const ConfirmationIndex = ({ ninja }) => {
           </select>
         </div>
         <div className="">
-          <label for="validationCustom01" className="form-label">
-            Phone
-          </label>
+          <label className="form-label">Phone</label>
           <input
             type="number"
             className="form-control"
@@ -102,9 +98,7 @@ const ConfirmationIndex = ({ ninja }) => {
           <div className="valid-feedback">Looks good!</div>
         </div>
         <div className="">
-          <label for="validationCustom02" className="form-label">
-            PIN Number
-          </label>
+          <label className="form-label">PIN Number</label>
           <input
             type="number"
             className="form-control"
@@ -116,9 +110,7 @@ const ConfirmationIndex = ({ ninja }) => {
         </div>
 
         <div className="">
-          <label for="validationCustom05" className="form-label">
-            Date of Birth
-          </label>
+          <label className="form-label">Date of Birth</label>
           <input
             type="date"
             className="form-control"
