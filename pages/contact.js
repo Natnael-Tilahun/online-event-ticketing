@@ -51,7 +51,7 @@ const Contact = () => {
           />
           <div className="valid-feedback">Looks good!</div>
         </div>
-        <div class="mb-3">
+        <div className="mb-3">
           <label className="form-label">Message</label>
           <textarea
             className="form-control"

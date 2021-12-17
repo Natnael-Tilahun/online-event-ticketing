@@ -61,6 +61,7 @@ const Invoice = ({ ninja }) => {
               height="400"
               width="400"
               className="pt-3"
+              alt="Qr Code Image"
             />
           </div>
 
