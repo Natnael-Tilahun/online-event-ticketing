@@ -42,7 +42,7 @@ const Confirmation = ({ ninja }) => {
       method: 'post',
       url: 'http://localhost:3000/api/otp',
       headers: {
-        'content-type': 'application/json',
+        'Content-Type': 'application/json',
       },
       data: values,
     };
