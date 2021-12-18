@@ -52,10 +52,10 @@ const Confirmation = ({ ninja }) => {
 
       if (response.status == 200) {
         window.alert('success');
+        router.push('/invoice/' + ninja.id);
       }
     } catch (err) {
       window.alert('faild post');
-      router.push('/invoice/' + ninja.id);
     }
   }
   return (
@@ -87,6 +87,8 @@ const Confirmation = ({ ninja }) => {
             id="validationCustom01"
             placeholder="please enter your OTP Code?"
             required
+            minLength="6"
+            maxLength="8"
           />
           <div className="valid-feedback">Looks good!</div>
         </div>
