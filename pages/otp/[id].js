@@ -51,6 +51,7 @@ const Confirmation = ({ ninja }) => {
       const response = await axios(config);
 
       if (response.status == 200) {
+        reset();
         window.alert('success');
         router.push('/invoice/' + ninja.id);
       }
@@ -76,7 +77,7 @@ const Confirmation = ({ ninja }) => {
       </div>
       <Form
         className="row g-3 needs-validation justify-content-center pt-2"
-        novalidate
+        // novalidate
         onSubmit={handleSubmit(onSubmitForm)}
       >
         <div className="">
