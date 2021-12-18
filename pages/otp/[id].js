@@ -1,6 +1,8 @@
 import { Button, Form } from 'react-bootstrap';
 import Link from 'next/link';
 import router, { useRouter } from 'next/router';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 export const getStaticPaths = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -30,10 +32,32 @@ export const getStaticProps = async (context) => {
 
 const Confirmation = ({ ninja }) => {
   const router = useRouter();
+  const { register, handleSubmit, errors, reset } = useForm();
   const backHandler = () => {
     router.back();
   };
 
+  async function onSubmitForm(values) {
+    let config = {
+      method: 'post',
+      url: `${process.env.NEXT_PUBLIC_API_URL}/api/otp`,
+      headers: {
+        'content-type': 'application/json',
+      },
+      data: values,
+    };
+
+    try {
+      const response = await axios(config);
+
+      if (response.status == 200) {
+        window.alert('success');
+        router.push('/invoice/ + {ninja.id}');
+      }
+    } catch (err) {
+      window.alert('faild post');
+    }
+  }
   return (
     <div className="container w-lg-50 w-xs-100  p-5  overflow-auto bg-light  shadow rounded-3 ">
       <p className="text-center fs-4 fw-bold pb-2"> Confirm Your Payment</p>
@@ -53,6 +77,7 @@ const Confirmation = ({ ninja }) => {
       <Form
         className="row g-3 needs-validation justify-content-center pt-2"
         novalidate
+        onSubmit={handleSubmit(onSubmitForm)}
       >
         <div className="">
           <label className="form-label">OTP</label>
@@ -76,16 +101,16 @@ const Confirmation = ({ ninja }) => {
           >
             Back
           </Button>
-          <Link href={'/invoice/' + ninja.id} key={ninja.id} passHref>
-            <Button
-              href="#"
-              className="btn mx-4 border-0"
-              //   type="submit"
-              style={{ backgroundColor: 'purple', color: 'white' }}
-            >
-              Next
-            </Button>
-          </Link>
+          {/* <Link href={'/invoice/' + ninja.id} key={ninja.id} passHref> */}
+          <Button
+            // href="#"
+            className="btn mx-4 border-0"
+            type="submit"
+            style={{ backgroundColor: 'purple', color: 'white' }}
+          >
+            Next
+          </Button>
+          {/* </Link> */}
         </div>
       </Form>
     </div>
