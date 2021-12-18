@@ -9,14 +9,14 @@ const Header = () => {
       expand="lg"
       // bg="light"
       variant="light"
-      // className="px-4"
+      className="px-4"
       style={{ backgroundColor: 'purple' }}
       // style={{
       //   padding: '10px 35px',
       // }}
     >
-      {/* <div> */}
-      <Container style={{}}>
+      <div>
+        {/* <Container style={{}}> */}
         <Link href="" passHref>
           <Navbar.Brand href="/" style={{}}>
             <Link href="/" passHref>
@@ -65,8 +65,8 @@ const Header = () => {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
-      </Container>
-      {/* </div> */}
+        {/* </Container> */}
+      </div>
     </Navbar>
   );
 };
