@@ -44,14 +44,14 @@ const Confirmation = ({ ninja }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      data: values,
+      data: { name: 'nati' },
     };
 
     try {
       const response = await axios(config);
 
       if (response.status == 200) {
-        reset();
+        // reset();
         window.alert('success');
         router.push('/invoice/' + ninja.id);
       }
