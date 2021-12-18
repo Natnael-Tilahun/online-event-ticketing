@@ -1,5 +1,6 @@
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Header = () => {
   return (
@@ -21,13 +22,19 @@ const Header = () => {
         <Navbar.Brand href="/" style={{}}>
           <Link href="/" passHref>
             <a
-              style={{
-                textDecoration: 'none',
-                color: 'white',
-                fontWeight: 900,
-                fontSize: '1.7rem',
-              }}
+            // style={{
+            //   textDecoration: 'none',
+            //   color: 'white',
+            //   fontWeight: 900,
+            //   fontSize: '1.7rem',
+            // }}
             >
+              <Image
+                src="/cbe-logo.png"
+                alt="site logo"
+                width={50}
+                height={50}
+              />
               Logo
             </a>
           </Link>
