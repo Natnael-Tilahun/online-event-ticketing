@@ -65,7 +65,7 @@ const Header = () => {
           </Nav.Link>
         </Nav> */}
 
-        <Nav className="me-lg-5 align-middle" className={styles.navMenu}>
+        <Nav className="me-lg-5 align-middle">
           <div className="container">
             <div className="d-flex flex-wrap align-items-center justify-content-start justify-content-lg-start">
               <ul className="navbar-nav mr-auto">
