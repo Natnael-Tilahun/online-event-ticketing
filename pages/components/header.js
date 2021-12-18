@@ -10,7 +10,7 @@ const Header = () => {
       // bg="light"
       variant="light"
       // className="px-4"
-      // style={{ backgroundColor: 'purple' }}
+      style={{ backgroundColor: 'purple' }}
       // style={{
       //   padding: '10px 35px',
       // }}
