@@ -26,7 +26,7 @@ const data = [
 const Steps = () => {
   return (
     <div
-      className="container-fluid row w-90    py-5  px-5 overflow-auto bg-light  shadow rounded-3  justify-content-center "
+      className="container-fluid row w-90    py-5  px-md-5 px-3 overflow-auto bg-light  shadow rounded-3  justify-content-center "
       style={{ height: '' }}
     >
       <p className="text-center fs-6"> What is the function</p>
