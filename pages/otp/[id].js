@@ -52,10 +52,10 @@ const Confirmation = ({ ninja }) => {
 
       if (response.status == 200) {
         window.alert('success');
-        router.push('/invoice/ + {ninja.id}');
       }
     } catch (err) {
       window.alert('faild post');
+      router.push('/invoice/' + ninja.id);
     }
   }
   return (
