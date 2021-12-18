@@ -15,7 +15,7 @@ const Contact = () => {
       <p className="text-center fs-4 fw-bold pt-2 pb-3"> Contact Us</p>
 
       <Form
-        className="row g-3 needs-validation justify-content-center px-3 pt-0 pt-lg-3 pb-2 pb-lg-5"
+        className="row g-2 needs-validation justify-content-center px-3 pt-0 pt-lg-3 pb-2 pb-lg-5"
         novalidate
       >
         <div className="col-6">

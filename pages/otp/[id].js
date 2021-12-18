@@ -61,7 +61,7 @@ const Confirmation = ({ ninja }) => {
     }
   }
   return (
-    <div className="container w-lg-50 w-xs-100  p-5  overflow-auto bg-light  shadow rounded-3 ">
+    <div className="container w-lg-50 w-xs-100  p-4  overflow-auto bg-light  shadow rounded-3 ">
       <p className="text-center fs-4 fw-bold pb-2"> Confirm Your Payment</p>
       <div className="row   gx-0 align-items-center justify-content-center">
         <div className="card col-12 ">
