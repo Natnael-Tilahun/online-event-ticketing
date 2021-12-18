@@ -44,7 +44,7 @@ const Confirmation = ({ ninja }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      data: { name: 'nati', phone: '12345' },
+      data: values,
     };
 
     try {
