@@ -19,7 +19,7 @@ const Ninjas = ({ ninjas }) => {
     <div className="w-80  p-5  overflow-auto bg-light  shadow rounded-3">
       <div className="row  gy-5 gx-3 ">
         {ninjas.map((ticket) => (
-          <div className="col-sm-12 col-md-6 col-xl-3" key={ticket.id}>
+          <div className="col-sm-12 col-md-6 col-lg-3 col-xl-4" key={ticket.id}>
             <div
               // key={ticket.id}
               className="card shadow rounded-3"
