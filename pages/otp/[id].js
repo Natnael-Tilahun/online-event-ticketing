@@ -56,7 +56,7 @@ const Confirmation = ({ ninja }) => {
         router.push('/invoice/' + ninja.id);
       }
     } catch (err) {
-      window.alert('faild post');
+      window.alert(err);
     }
   }
   return (
