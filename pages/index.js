@@ -17,7 +17,7 @@ export const getStaticProps = async () => {
 const Ninjas = ({ ninjas }) => {
   return (
     <div className="w-80  p-5  overflow-auto bg-light  shadow rounded-3">
-      <div className="row  gy-5 gx-3 ">
+      <div className="row  gy-5 gx-5 ">
         {ninjas.map((ticket) => (
           <div className="col-sm-12 col-md-6 col-lg" key={ticket.id}>
             <div
