@@ -9,8 +9,8 @@ const Header = () => {
       expand="lg"
       // bg="light"
       variant="light"
-      className="px-4"
-      style={{ backgroundColor: 'purple' }}
+      // className="px-4"
+      // style={{ backgroundColor: 'purple' }}
       // style={{
       //   padding: '10px 35px',
       // }}
