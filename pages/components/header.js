@@ -35,7 +35,6 @@ const Header = () => {
                 width={50}
                 height={50}
               />
-              Logo
             </a>
           </Link>
         </Navbar.Brand>
