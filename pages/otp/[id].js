@@ -40,7 +40,7 @@ const Confirmation = ({ ninja }) => {
   async function onSubmitForm(values) {
     let config = {
       method: 'post',
-      url: `${process.env.NEXT_PUBLIC_API_URL}/api/otp`,
+      url: 'http://localhost:3000/api/otp',
       headers: {
         'content-type': 'application/json',
       },
