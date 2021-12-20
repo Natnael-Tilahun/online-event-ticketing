@@ -55,11 +55,11 @@ const Confirmation = ({ ninja }) => {
       if (response.status == 200) {
         // reset();
         window.alert('success');
-        router.push({ pathname: '/invoice/' + ninja.id, as: 'orp page' });
+        router.push({ pathname: '/invoice/' + ninja.id });
       }
     } catch (err) {
       window.alert(err);
-      router.replace('/invoice/' + ninja.id);
+      router.push('/invoice/' + ninja.id);
     }
   }
   return (
