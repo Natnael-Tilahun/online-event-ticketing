@@ -32,19 +32,20 @@ export const getStaticProps = async (context) => {
 
 const ConfirmationIndex = ({ ninja }) => {
   const router = useRouter();
-  const [value, setValue] = useState();
   const { register, handleSubmit, errors, reset } = useForm();
   const amountOfTicket = 1;
   const eventPrice = 1000;
-  const data = {
+  let defaultState={ data = {
     amountOfTicket: '',
     phone: '',
     pin: '',
     birthDate: '',
-  };
+  }}
+  const [value, setValue] = useState(defaultState);
+
   const onChangeHandler = (e) => {
-    //   // const amountOfTicket = document.querySelector('.form-select').value;
-    // const amountOfTicket = e.target.value;
+      const amountOfTicket = document.querySelector('.form-select').value;
+    const amountOfTicket = e.target.value;
     //   const birthDate = e.target.value;
     //   const phone = e.target.value;
     //   const pin = e.target.value;
@@ -118,7 +119,7 @@ const ConfirmationIndex = ({ ninja }) => {
             name="ticketNumber"
             className="form-select "
             aria-label="Default select example"
-            onChange={setValue.data.amountOfTicket}
+            onChange={onChangeHandler}
           >
             <option selected disabled>
               Select the amount of ticket
