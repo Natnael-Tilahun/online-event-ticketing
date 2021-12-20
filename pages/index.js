@@ -17,8 +17,8 @@ export const getStaticProps = async () => {
 
 const Ninjas = ({ ninjas }) => {
   const router = useRouter();
-  const nextHandler = () => {
-    router.push('/confirmation/' + ninjas.id);
+  const nextHandler = (ticketId) => {
+    router.push('/confirmation/' + ticketId);
   };
   return (
     <div className="w-80  p-5  overflow-auto bg-light  shadow rounded-3">
@@ -55,14 +55,14 @@ const Ninjas = ({ ninjas }) => {
                   </li>
                 </ul>
                 {/* <Link key={ticket.id} passHref> */}
-                <a
+                <Button
                   href=""
                   className="btn btn-primary  d-flex justify-content-center mt-2"
                   style={{ backgroundColor: 'purple', border: 'none' }}
-                  onClick={nextHandler}
+                  onClick={nextHandler(ticket.id)}
                 >
                   Get Ticket
-                </a>
+                </Button>
                 {/* </Link> */}
               </div>
             </div>
