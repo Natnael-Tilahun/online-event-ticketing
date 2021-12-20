@@ -16,8 +16,9 @@ export const getStaticProps = async () => {
 };
 
 const Ninjas = ({ ninjas }) => {
+  const router = useRouter();
+
   const nextHandler = () => {
-    const router = useRouter();
     router.replace('/confirmation/' + ninjas.id);
   };
   return (
