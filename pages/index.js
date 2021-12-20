@@ -51,12 +51,11 @@ const Ninjas = ({ ninjas }) => {
                   </li>
                 </ul>
                 <Link
-                  href={{
-                    pathname: '/confirmation/' + ticket.id,
-                    as: 'homepage',
-                  }}
+                  href={'/confirmation/' + ticket.id}
+                  as="homepage"
                   key={ticket.id}
                   passHref
+                  replace
                 >
                   <a
                     href=""
