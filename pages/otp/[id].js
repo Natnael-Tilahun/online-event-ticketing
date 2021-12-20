@@ -44,7 +44,7 @@ const Confirmation = ({ ninja }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      data: { name: 'nati' },
+      data: values,
     };
 
     try {
@@ -84,6 +84,7 @@ const Confirmation = ({ ninja }) => {
         <div className="">
           <label className="form-label">OTP</label>
           <input
+            name="otp"
             type="number"
             className="form-control"
             id="validationCustom01"
