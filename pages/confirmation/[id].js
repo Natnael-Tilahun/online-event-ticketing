@@ -34,6 +34,9 @@ export const getStaticProps = async (context) => {
 const ConfirmationIndex = ({ ninja }) => {
   const router = useRouter();
   const { register, handleSubmit, errors, reset } = useForm();
+  const amountOfTicketInput = document.querySelector('.form-select').value;
+  const eventPriceLabel = document.querySelector('.event-price');
+
   // const amountOfTicket = 1;
   const eventPrice = 1000;
   let defaultState = {
@@ -47,13 +50,11 @@ const ConfirmationIndex = ({ ninja }) => {
   const [value, setValue] = useState(defaultState);
 
   const onChangeHandler = () => {
-    const amountOfTicketInput = document.querySelector('.form-select').value;
     setValue.data.amountOfTicket = amountOfTicketInput.value;
     window.alert(value.data.amountOfTicket);
     //   const birthDate = e.target.value;
     //   const phone = e.target.value;
     //   const pin = e.target.value;
-    const eventPriceLabel = document.querySelector('.event-price');
     const eventPrice = value.data.amountOfTicket * 1000;
     eventPriceLabel.innerHTML = eventPrice;
     // window.alert(value.data);
