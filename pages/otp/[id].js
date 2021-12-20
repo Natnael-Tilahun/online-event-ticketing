@@ -40,33 +40,34 @@ const Confirmation = ({ ninja }) => {
   };
 
   async function onSubmitForm() {
-    if (otpValue.length() < 6) {
+    if (otpValue.length < 6) {
       <div className="invalid-feedback">
         Otp code length should be greater than 6.
       </div>;
     } else if (otpValue.length > 8) {
-      window.alert(otpValue.length());
-    }
-    let config = {
-      method: 'post',
-      url: 'http://localhost:3000/api/otp',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      data: otpValue,
-    };
+      window.alert(otpValue.length);
+    } else {
+      let config = {
+        method: 'post',
+        url: 'http://localhost:3000/api/otp',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: otpValue,
+      };
 
-    try {
-      const response = await axios(config);
+      try {
+        const response = await axios(config);
 
-      if (response.status == 200) {
-        reset();
-        window.alert('success');
-        router.push({ pathname: '/invoice/' + ninja.id });
+        if (response.status == 200) {
+          reset();
+          window.alert('success');
+          router.push({ pathname: '/invoice/' + ninja.id });
+        }
+      } catch (err) {
+        window.alert(err);
+        router.push('/invoice/' + ninja.id);
       }
-    } catch (err) {
-      window.alert(err);
-      router.push('/invoice/' + ninja.id);
     }
   }
   return (
