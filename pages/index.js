@@ -54,16 +54,16 @@ const Ninjas = ({ ninjas }) => {
                     1000 ETB
                   </li>
                 </ul>
-                {/* <Link key={ticket.id} passHref> */}
-                <Button
-                  href=""
-                  className="btn btn-primary  d-flex justify-content-center mt-2"
-                  style={{ backgroundColor: 'purple', border: 'none' }}
-                  onClick={nextHandler(ticket.id)}
-                >
-                  Get Ticket
-                </Button>
-                {/* </Link> */}
+                <Link href="" key={ticket.id} passHref>
+                  <Button
+                    href=""
+                    className="btn btn-primary  d-flex justify-content-center mt-2"
+                    style={{ backgroundColor: 'purple', border: 'none' }}
+                    onClick={nextHandler(ticket.id)}
+                  >
+                    Get Ticket
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
