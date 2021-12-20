@@ -35,16 +35,18 @@ const ConfirmationIndex = ({ ninja }) => {
   const { register, handleSubmit, errors, reset } = useForm();
   const amountOfTicket = 1;
   const eventPrice = 1000;
-  let defaultState={ data = {
-    amountOfTicket: '',
-    phone: '',
-    pin: '',
-    birthDate: '',
-  }}
+  let defaultState = {
+    data: {
+      amountOfTicket: '',
+      phone: '',
+      pin: '',
+      birthDate: '',
+    },
+  };
   const [value, setValue] = useState(defaultState);
 
   const onChangeHandler = (e) => {
-      const amountOfTicket = document.querySelector('.form-select').value;
+    const amountOfTicket = document.querySelector('.form-select').value;
     const amountOfTicket = e.target.value;
     //   const birthDate = e.target.value;
     //   const phone = e.target.value;
