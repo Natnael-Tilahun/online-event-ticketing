@@ -41,10 +41,11 @@ const Confirmation = ({ ninja }) => {
 
   async function onSubmitForm() {
     if (otpValue.length < 6) {
-      <div className="invalid-feedback">
-        Otp code length should be greater than 6.
-      </div>;
+      document.querySelector('.invalid-feedback').innerHTML =
+        '  Otp code length should be greater than 6.';
     } else if (otpValue.length > 8) {
+      document.querySelector('.invalid-feedback').innerHTML =
+        '  Otp code length should be less than 8.';
       window.alert(otpValue.length);
     } else {
       let config = {
@@ -104,6 +105,7 @@ const Confirmation = ({ ninja }) => {
             }}
             required
           />
+          <div className="invalid-feedback"></div>;
         </div>
 
         <div className="col-12">
