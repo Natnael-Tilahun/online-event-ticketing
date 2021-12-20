@@ -55,7 +55,7 @@ const Confirmation = ({ ninja }) => {
       if (response.status == 200) {
         // reset();
         window.alert('success');
-        router.push('/invoice/' + ninja.id);
+        router.push({ pathname: '/invoice/' + ninja.id, as: 'orp page' });
       }
     } catch (err) {
       window.alert(err);
