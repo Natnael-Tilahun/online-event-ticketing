@@ -41,10 +41,10 @@ const Confirmation = ({ ninja }) => {
 
   async function onSubmitForm() {
     if (otpValue.length < 6) {
-      document.querySelector('.invalid-feedback').innerHTML =
+      document.querySelector('.text-danger').innerHTML =
         '  Otp code length should be greater than 6.';
     } else if (otpValue.length > 8) {
-      document.querySelector('.invalid-feedback').innerHTML =
+      document.querySelector('.text-danger').innerHTML =
         '  Otp code length should be less than 8.';
       window.alert(otpValue.length);
     } else {
@@ -105,7 +105,7 @@ const Confirmation = ({ ninja }) => {
             }}
             required
           />
-          <div className="text-danger"> error message fssdfsa</div>
+          <div className="text-danger"></div>
         </div>
 
         <div className="col-12">
