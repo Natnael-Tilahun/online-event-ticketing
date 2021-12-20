@@ -59,7 +59,7 @@ const Confirmation = ({ ninja }) => {
       }
     } catch (err) {
       window.alert(err);
-      router.push('/invoice/' + ninja.id);
+      router.replace('/invoice/' + ninja.id);
     }
   }
   return (

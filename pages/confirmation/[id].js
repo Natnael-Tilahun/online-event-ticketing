@@ -43,7 +43,7 @@ const ConfirmationIndex = ({ ninja }) => {
   };
 
   const routerHandler = () => {
-    router.push('/otp/' + ninja.id);
+    router.replace('/otp/' + ninja.id);
   };
   return (
     <div className="container w-lg-50 w-sm-100  p-5  overflow-auto bg-light  shadow rounded-3 ">
