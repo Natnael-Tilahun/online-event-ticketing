@@ -46,7 +46,7 @@ const Confirmation = ({ ninja }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      data: data,
+      data: otpValue,
     };
 
     try {
@@ -91,23 +91,9 @@ const Confirmation = ({ ninja }) => {
             className="form-control"
             id="validationCustom01"
             placeholder="please enter your OTP Code?"
-            // onChange={(e) => {
-            //   setOtpValue(e.currentTarget.value);
-            // }}
-            ref={register({
-              required: {
-                value: true,
-                message: 'You must enter otp we have sent to you',
-              },
-              minLength: {
-                value: 6,
-                message: 'This is too short',
-              },
-              maxLength: {
-                value: 8,
-                message: 'This is too long',
-              },
-            })}
+            onChange={(e) => {
+              setOtpValue(e.currentTarget.value);
+            }}
           />
           {errors?.otp && (
             <div className="invalid-feedback">{errors?.otp?.message}</div>
