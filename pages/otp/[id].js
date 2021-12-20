@@ -94,9 +94,20 @@ const Confirmation = ({ ninja }) => {
             onChange={(e) => {
               setOtpValue(e.currentTarget.value);
             }}
-            required
-            minLength="6"
-            maxLength="8"
+            ref={register({
+              required: {
+                value: true,
+                message: 'You must enter otp we have sent to you',
+              },
+              minLength: {
+                value: 6,
+                message: 'This is too short',
+              },
+              maxLength: {
+                value: 8,
+                message: 'This is too long',
+              },
+            })}
           />
           <div className="valid-feedback">Looks good!</div>
         </div>
