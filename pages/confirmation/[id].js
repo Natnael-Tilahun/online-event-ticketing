@@ -46,9 +46,9 @@ const ConfirmationIndex = ({ ninja }) => {
   };
   const [value, setValue] = useState(defaultState);
 
-  const onChangeHandler = (e) => {
-    // const amountOfTicketInput = document.querySelector('.form-select').value;
-    setValue.data.amountOfTicket = e.currentTarget.value;
+  const onChangeHandler = () => {
+    const amountOfTicketInput = document.querySelector('.form-select').value;
+    setValue.data.amountOfTicket = amountOfTicketInput.value;
     window.alert(value.data.amountOfTicket);
     //   const birthDate = e.target.value;
     //   const phone = e.target.value;
@@ -132,7 +132,7 @@ const ConfirmationIndex = ({ ninja }) => {
             name="ticketNumber"
             className="form-select "
             aria-label="Default select example"
-            onChange={onChangeHandler(e)}
+            onChange={onChangeHandler()}
           >
             <option selected disabled>
               Select the amount of ticket
