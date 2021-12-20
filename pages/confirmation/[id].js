@@ -42,9 +42,9 @@ const ConfirmationIndex = ({ ninja }) => {
     router.back();
   };
 
-  // const routerHandler = () => {
-  //   router.push('/otp/otpIndex');
-  // };
+  const routerHandler = () => {
+    router.push('/otp/' + ninja.id);
+  };
   return (
     <div className="container w-lg-50 w-sm-100  p-5  overflow-auto bg-light  shadow rounded-3 ">
       <p className="text-center fs-4 fw-bold pb-2"> Get Your Ticket</p>
@@ -131,11 +131,11 @@ const ConfirmationIndex = ({ ninja }) => {
           >
             Back
           </Button>
-          <Link href={'/otp/' + ninja.id} key={ninja.id} passHref>
+          <Link href="" key={ninja.id} passHref>
             <Button
               className="btn mx-4 px-4 border-0"
               type="submit"
-              // onClick={routerHandler}
+              onClick={routerHandler}
               style={{ backgroundColor: 'purple', color: 'white' }}
             >
               Next
