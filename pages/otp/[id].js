@@ -94,6 +94,7 @@ const Confirmation = ({ ninja }) => {
             onChange={(e) => {
               setOtpValue(e.currentTarget.value);
             }}
+            required
           />
           {errors?.otp && (
             <div className="invalid-feedback">{errors?.otp?.message}</div>
