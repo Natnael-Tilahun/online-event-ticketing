@@ -33,11 +33,11 @@ export const getStaticProps = async (context) => {
 const ConfirmationIndex = ({ ninja }) => {
   const router = useRouter();
   const { register, handleSubmit, errors, reset } = useForm();
-  const amountOfTicket = 1;
+  // const amountOfTicket = 1;
   const eventPrice = 1000;
   let defaultState = {
     data: {
-      amountOfTicket: '',
+      amountOfTicket: '1',
       phone: '',
       pin: '',
       birthDate: '',
@@ -45,52 +45,55 @@ const ConfirmationIndex = ({ ninja }) => {
   };
   const [value, setValue] = useState(defaultState);
 
-  const onChangeHandler = (e) => {
-    const amountOfTicket = document.querySelector('.form-select').value;
-    setValue.data.amountOfTicket = amountOfTicket.value;
+  const onChangeHandler = () => {
+    const amountOfTicketInput = document.querySelector('.form-select').value;
+    setValue.data.amountOfTicket = amountOfTicketInput.value;
     //   const birthDate = e.target.value;
     //   const phone = e.target.value;
     //   const pin = e.target.value;
     const eventpriceLabel = document.querySelector('.event-price');
     const eventPrice = value.data.amountOfTicket * 1000;
     eventpriceLabel.innerHTML = eventPrice;
-    window.alert(value.data);
+    // window.alert(value.data);
   };
   const backHandler = () => {
     router.back();
   };
 
-  // async function onSubmitForm() {
-  //   if (otpValue.length < 6) {
-  //     document.querySelector('.text-danger').innerHTML =
-  //       '  Otp code length should be greater than 6.';
-  //   } else if (otpValue.length > 8) {
-  //     document.querySelector('.text-danger').innerHTML =
-  //       '  Otp code length should be less than 8.';
-  //   } else {
-  //     let config = {
-  //       method: 'post',
-  //       url: 'http://localhost:3000/api/otp',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       data: otpValue,
-  //     };
+  async function onSubmitForm() {
+    window.alert(value.data);
+    router.push('/otp/' + ninja.id);
 
-  //     try {
-  //       const response = await axios(config);
+    //   if (otpValue.length < 6) {
+    //     document.querySelector('.text-danger').innerHTML =
+    //       '  Otp code length should be greater than 6.';
+    //   } else if (otpValue.length > 8) {
+    //     document.querySelector('.text-danger').innerHTML =
+    //       '  Otp code length should be less than 8.';
+    //   } else {
+    //     let config = {
+    //       method: 'post',
+    //       url: 'http://localhost:3000/api/otp',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //       },
+    //       data: otpValue,
+    //     };
 
-  //       if (response.status == 200) {
-  //         reset();
-  //         window.alert('success');
-  //         router.push({ pathname: '/invoice/' + ninja.id });
-  //       }
-  //     } catch (err) {
-  //       window.alert(err);
-  //       router.push('/invoice/' + ninja.id);
-  //     }
-  //   }
-  // }
+    //     try {
+    //       const response = await axios(config);
+
+    //       if (response.status == 200) {
+    //         reset();
+    //         window.alert('success');
+    //         router.push({ pathname: '/invoice/' + ninja.id });
+    //       }
+    //     } catch (err) {
+    //       window.alert(err);
+    //       router.push('/invoice/' + ninja.id);
+    //     }
+    //   }
+  }
   return (
     <div className="container w-lg-50 w-sm-100  p-5  overflow-auto bg-light  shadow rounded-3 ">
       <p className="text-center fs-4 fw-bold pb-2"> Get Your Ticket</p>
@@ -183,16 +186,16 @@ const ConfirmationIndex = ({ ninja }) => {
           >
             Back
           </Button>
-          <Link href={'/otp/' + ninja.id} key={ninja.id} passHref>
-            <Button
-              className="btn mx-4 px-4 border-0"
-              type="submit"
-              // onClick={routerHandler}
-              style={{ backgroundColor: 'purple', color: 'white' }}
-            >
-              Next
-            </Button>
-          </Link>
+          {/* <Link href={'/otp/' + ninja.id} key={ninja.id} passHref> */}
+          <Button
+            className="btn mx-4 px-4 border-0"
+            type="submit"
+            // onClick={routerHandler}
+            style={{ backgroundColor: 'purple', color: 'white' }}
+          >
+            Next
+          </Button>
+          {/* </Link> */}
           {/* </Link> */}
         </div>
       </Form>
