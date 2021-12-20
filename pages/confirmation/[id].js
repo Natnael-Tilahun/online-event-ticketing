@@ -47,7 +47,7 @@ const ConfirmationIndex = ({ ninja }) => {
 
   const onChangeHandler = (e) => {
     const amountOfTicket = document.querySelector('.form-select').value;
-    const amountOfTicket = e.target.value;
+    setValue.data.amountOfTicket = amountOfTicket.value;
     //   const birthDate = e.target.value;
     //   const phone = e.target.value;
     //   const pin = e.target.value;
