@@ -144,7 +144,9 @@ const ConfirmationIndex = ({ ninja }) => {
             name="phone"
             className="form-control"
             id="validationCustom01"
-            onChange={setValue.data.phone}
+            onChange={(e) => {
+              setValue.data.phone(e.currentTarget.value);
+            }}
             placeholder="please enter your phone number"
             required
           />
@@ -157,7 +159,9 @@ const ConfirmationIndex = ({ ninja }) => {
             name="pin"
             className="form-control"
             id="validationCustom02"
-            onChange={setValue.data.pin}
+            onChange={(e) => {
+              setValue.data.pin(e.currentTarget.value);
+            }}
             placeholder="please enter your pin number"
             required
           />
@@ -172,7 +176,9 @@ const ConfirmationIndex = ({ ninja }) => {
             className="form-control"
             id="validationCustom05"
             required
-            onChange={setValue.data.birthDate}
+            onChange={(e) => {
+              setValue.data.birthDate(e.currentTarget.value);
+            }}
           />
           <div className="text-danger bitrhDate"></div>
         </div>
