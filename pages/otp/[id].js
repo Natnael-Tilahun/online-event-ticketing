@@ -3,6 +3,7 @@ import Link from 'next/link';
 import router, { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { useState } from 'react';
 
 export const getStaticPaths = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users');
