@@ -18,7 +18,7 @@ export const getStaticProps = async () => {
 const Ninjas = ({ ninjas }) => {
   const router = useRouter();
   const nextHandler = () => {
-    router.push('/confirmation/' + ticket.id);
+    router.push('/confirmation/' + ninjas.id);
   };
   return (
     <div className="w-80  p-5  overflow-auto bg-light  shadow rounded-3">
