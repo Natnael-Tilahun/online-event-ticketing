@@ -89,7 +89,7 @@ const Confirmation = ({ ninja }) => {
       </div>
       <Form
         className="row g-3 needs-validation justify-content-center pt-2"
-        // novalidate
+        novalidate
         onSubmit={handleSubmit(onSubmitForm)}
       >
         <div className="">
