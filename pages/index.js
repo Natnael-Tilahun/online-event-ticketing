@@ -51,8 +51,10 @@ const Ninjas = ({ ninjas }) => {
                   </li>
                 </ul>
                 <Link
-                  href={'/confirmation/' + ticket.id}
-                  as="only index"
+                  href={{
+                    pathname: '/confirmation/' + ticket.id,
+                    as: 'homepage',
+                  }}
                   key={ticket.id}
                   passHref
                 >
