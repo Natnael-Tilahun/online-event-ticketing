@@ -62,7 +62,7 @@ const ConfirmationIndex = ({ ninja }) => {
 
     if (phone.length < 9) {
       document.querySelector('.phone-error').innerHTML =
-        '  Phone Number length should be greater than 6.';
+        '  Phone Number length should be greater than 9.';
     } else if (phone.length > 11) {
       document.querySelector('.phone-error').innerHTML =
         '  Phone Number length should be less than 11.';
