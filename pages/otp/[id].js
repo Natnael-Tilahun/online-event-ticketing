@@ -31,6 +31,7 @@ export const getStaticProps = async (context) => {
 };
 
 const Confirmation = ({ ninja }) => {
+  const [otpValue, setOtpValue] = useState();
   const router = useRouter();
   const { register, handleSubmit, errors, reset } = useForm();
   const backHandler = () => {
@@ -44,7 +45,7 @@ const Confirmation = ({ ninja }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      data: values,
+      data: otpValue,
     };
 
     try {
@@ -89,6 +90,9 @@ const Confirmation = ({ ninja }) => {
             className="form-control"
             id="validationCustom01"
             placeholder="please enter your OTP Code?"
+            onChange={(e) => {
+              setOtpValue(e.currentTarget.value);
+            }}
             required
             minLength="6"
             maxLength="8"
