@@ -40,7 +40,7 @@ const ConfirmationIndex = ({ ninja }) => {
   };
 
   const nextHandler = () => {
-    router.replace('/otp/' + ninja.id);
+    router.push({ pathname: '/otp/' + ninja.id, as: 'only otp' });
   };
   const backHandler = () => {
     router.back();

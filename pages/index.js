@@ -19,7 +19,7 @@ const Ninjas = ({ ninjas }) => {
   const router = useRouter();
 
   const nextHandler = () => {
-    router.replace('/confirmation/' + ninjas.id);
+    router.push({ pathname: '/confirmation/' + ninjas.id, as: 'confirm' });
   };
   return (
     <div className="w-80  p-5  overflow-auto bg-light  shadow rounded-3">
