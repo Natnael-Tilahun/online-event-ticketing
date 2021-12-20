@@ -39,14 +39,14 @@ const Confirmation = ({ ninja }) => {
     router.back();
   };
 
-  async function onSubmitForm(values) {
+  async function onSubmitForm() {
     let config = {
       method: 'post',
       url: 'http://localhost:3000/api/otp',
       headers: {
         'Content-Type': 'application/json',
       },
-      data: otpValue,
+      data: data,
     };
 
     try {
@@ -91,9 +91,9 @@ const Confirmation = ({ ninja }) => {
             className="form-control"
             id="validationCustom01"
             placeholder="please enter your OTP Code?"
-            onChange={(e) => {
-              setOtpValue(e.currentTarget.value);
-            }}
+            // onChange={(e) => {
+            //   setOtpValue(e.currentTarget.value);
+            // }}
             ref={register({
               required: {
                 value: true,
@@ -109,7 +109,9 @@ const Confirmation = ({ ninja }) => {
               },
             })}
           />
-          <div className="invalid-feedback">{errors?.otp?.message}</div>
+          {errors?.otp && (
+            <div className="invalid-feedback">{errors?.otp?.message}</div>
+          )}
         </div>
 
         <div className="col-12">
