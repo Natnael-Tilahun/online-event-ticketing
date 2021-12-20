@@ -53,7 +53,7 @@ const Confirmation = ({ ninja }) => {
       const response = await axios(config);
 
       if (response.status == 200) {
-        // reset();
+        reset();
         window.alert('success');
         router.push({ pathname: '/invoice/' + ninja.id });
       }
@@ -94,22 +94,22 @@ const Confirmation = ({ ninja }) => {
             onChange={(e) => {
               setOtpValue(e.currentTarget.value);
             }}
-            // ref={register({
-            //   required: {
-            //     value: true,
-            //     message: 'You must enter otp we have sent to you',
-            //   },
-            //   minLength: {
-            //     value: 6,
-            //     message: 'This is too short',
-            //   },
-            //   maxLength: {
-            //     value: 8,
-            //     message: 'This is too long',
-            //   },
-            // })}
+            ref={register({
+              required: {
+                value: true,
+                message: 'You must enter otp we have sent to you',
+              },
+              minLength: {
+                value: 6,
+                message: 'This is too short',
+              },
+              maxLength: {
+                value: 8,
+                message: 'This is too long',
+              },
+            })}
           />
-          <div className="valid-feedback">Looks good!</div>
+          <div className="invalid-feedback">{errors?.otp?.message}</div>
         </div>
 
         <div className="col-12">
