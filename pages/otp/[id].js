@@ -105,7 +105,7 @@ const Confirmation = ({ ninja }) => {
             }}
             required
           />
-          <div className=""> error message fssdfsa</div>
+          <div className="invalid-feedback"> error message fssdfsa</div>
         </div>
 
         <div className="col-12">
