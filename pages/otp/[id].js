@@ -40,6 +40,10 @@ const Confirmation = ({ ninja }) => {
   };
 
   async function onSubmitForm() {
+    if (otpValue.length <= 6) {
+      document.querySelector('.invalid-feedback').innerHTML =
+        'Otp code length should be greater than 6.';
+    }
     let config = {
       method: 'post',
       url: 'http://localhost:3000/api/otp',
@@ -96,9 +100,7 @@ const Confirmation = ({ ninja }) => {
             }}
             required
           />
-          {errors?.otp && (
-            <div className="invalid-feedback">{errors?.otp?.message}</div>
-          )}
+          {errors?.otp && <div className="invalid-feedback"></div>}
         </div>
 
         <div className="col-12">
