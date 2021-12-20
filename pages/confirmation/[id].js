@@ -20,6 +20,7 @@ export const getStaticPaths = async () => {
     fallback: false,
   };
 };
+
 export const getStaticProps = async (context) => {
   const id = context.params.id;
   const res = await fetch('https://jsonplaceholder.typicode.com/users/' + id);
@@ -48,12 +49,13 @@ const ConfirmationIndex = ({ ninja }) => {
   const onChangeHandler = (e) => {
     // const amountOfTicketInput = document.querySelector('.form-select').value;
     setValue.data.amountOfTicket = e.currentTarget.value;
+    window.alert(value.data.amountOfTicket);
     //   const birthDate = e.target.value;
     //   const phone = e.target.value;
     //   const pin = e.target.value;
-    const eventpriceLabel = document.querySelector('.event-price');
+    const eventPriceLabel = document.querySelector('.event-price');
     const eventPrice = value.data.amountOfTicket * 1000;
-    eventpriceLabel.innerHTML = eventPrice;
+    eventPriceLabel.innerHTML = eventPrice;
     // window.alert(value.data);
   };
   const backHandler = () => {
@@ -130,7 +132,7 @@ const ConfirmationIndex = ({ ninja }) => {
             name="ticketNumber"
             className="form-select "
             aria-label="Default select example"
-            onChange={onChangeHandler}
+            onChange={onChangeHandler(e)}
           >
             <option selected disabled>
               Select the amount of ticket
