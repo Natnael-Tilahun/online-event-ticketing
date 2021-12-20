@@ -32,11 +32,16 @@ const ConfirmationIndex = ({ ninja }) => {
   const router = useRouter();
   const amountOfTicket = 1;
   const eventPrice = 1000;
-  const onChangeHandler = () => {
-    const amountOfTicket = document.querySelector('.form-select').value;
+  const onChangeHandler = (e) => {
+    // const amountOfTicket = document.querySelector('.form-select').value;
+    const amountOfTicket = e.target.value;
+    const birthDate = e.target.value;
+    const phone = e.target.value;
+    const pin = e.target.value;
     const eventpriceLabel = document.querySelector('.event-price');
     const eventPrice = amountOfTicket * 1000;
     eventpriceLabel.innerHTML = eventPrice;
+    window.alert(amountOfTicket + birthDate + phone + pin);
   };
   const backHandler = () => {
     router.back();
@@ -71,6 +76,7 @@ const ConfirmationIndex = ({ ninja }) => {
         <div className="pt-3">
           <label className="form-label">Number of tickets</label>
           <select
+            name="ticketNumber"
             className="form-select "
             aria-label="Default select example"
             onChange={onChangeHandler}
@@ -90,8 +96,10 @@ const ConfirmationIndex = ({ ninja }) => {
           <label className="form-label">Phone</label>
           <input
             type="number"
+            name="phone"
             className="form-control"
             id="validationCustom01"
+            onChange={onChangeHandler}
             placeholder="please enter your phone number"
             required
           />
@@ -101,8 +109,10 @@ const ConfirmationIndex = ({ ninja }) => {
           <label className="form-label">PIN Number</label>
           <input
             type="number"
+            name="pin"
             className="form-control"
             id="validationCustom02"
+            onChange={onChangeHandler}
             placeholder="please enter your pin number"
             required
           />
@@ -112,10 +122,12 @@ const ConfirmationIndex = ({ ninja }) => {
         <div className="">
           <label className="form-label">Date of Birth</label>
           <input
+            name="birthDate"
             type="date"
             className="form-control"
             id="validationCustom05"
             required
+            onChange={onChangeHandler}
           />
           <div className="invalid-feedback">
             Please provide a valid birth date.

@@ -66,7 +66,7 @@ const Invoice = ({ ninja }) => {
           </div>
 
           <Button className=" text-center mx-auto my-4" onClick={routerHandler}>
-            Save QR Code
+            Download QR Code
           </Button>
         </div>
       </div>

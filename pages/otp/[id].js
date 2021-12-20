@@ -46,7 +46,6 @@ const Confirmation = ({ ninja }) => {
     } else if (otpValue.length > 8) {
       document.querySelector('.text-danger').innerHTML =
         '  Otp code length should be less than 8.';
-      window.alert(otpValue.length);
     } else {
       let config = {
         method: 'post',
