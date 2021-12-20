@@ -38,6 +38,10 @@ const ConfirmationIndex = ({ ninja }) => {
     const eventPrice = amountOfTicket * 1000;
     eventpriceLabel.innerHTML = eventPrice;
   };
+
+  const nextHandler = () => {
+    router.replace('/otp/' + ninja.id);
+  };
   const backHandler = () => {
     router.back();
   };
@@ -131,12 +135,13 @@ const ConfirmationIndex = ({ ninja }) => {
           >
             Back
           </Button>
-          <Link href={'/otp/' + ninja.id} key={ninja.id} passHref>
+          <Link key={ninja.id} passHref>
             <Button
               className="btn mx-4 px-4 border-0"
               type="submit"
               // onClick={routerHandler}
               style={{ backgroundColor: 'purple', color: 'white' }}
+              onClick={nextHandler}
             >
               Next
             </Button>

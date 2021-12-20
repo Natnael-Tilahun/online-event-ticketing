@@ -55,11 +55,11 @@ const Confirmation = ({ ninja }) => {
       if (response.status == 200) {
         // reset();
         window.alert('success');
-        router.push('/invoice/' + ninja.id);
+        router.replace('/invoice/' + ninja.id);
       }
     } catch (err) {
       window.alert(err);
-      router.push('/invoice/' + ninja.id);
+      router.replace('/invoice/' + ninja.id);
     }
   }
   return (
