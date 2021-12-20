@@ -47,6 +47,7 @@ const Confirmation = ({ ninja }) => {
       document.querySelector('.text-danger').innerHTML =
         '  Otp code length should be less than 8.';
     } else {
+      document.querySelector('.text-danger').innerHTML = ' ';
       let config = {
         method: 'post',
         url: 'http://localhost:3000/api/otp',
