@@ -35,17 +35,16 @@ const Confirmation = ({ ninja }) => {
   const [otpValue, setOtpValue] = useState();
   const router = useRouter();
   const { register, handleSubmit, errors, reset } = useForm();
+  const errorDiv = document.querySelector('.invalid-feedback');
   const backHandler = () => {
     router.back();
   };
 
   async function onSubmitForm() {
     if (otpValue.length < 6) {
-      document.querySelector('.invalid-feedback').innerHTML =
-        '  Otp code length should be greater than 6.';
+      errorDiv.innerHTML = '  Otp code length should be greater than 6.';
     } else if (otpValue.length > 8) {
-      document.querySelector('.invalid-feedback').innerHTML =
-        '  Otp code length should be less than 8.';
+      errorDiv.innerHTML = '  Otp code length should be less than 8.';
       window.alert(otpValue.length);
     } else {
       let config = {
@@ -105,7 +104,7 @@ const Confirmation = ({ ninja }) => {
             }}
             required
           />
-          <div className="invalid-feedback"></div>;
+          <div className="invalid-feedback"> error message</div>
         </div>
 
         <div className="col-12">
