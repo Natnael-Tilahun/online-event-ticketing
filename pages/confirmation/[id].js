@@ -47,15 +47,9 @@ const ConfirmationIndex = ({ ninja }) => {
   const onChangeHandler = () => {
     const amountOfTicketInput = document.querySelector('.form-select').value;
     const eventPriceLabel = document.querySelector('.event-price');
-
     setAmountOfTicket = amountOfTicketInput.value;
-    window.alert(amountOfTicketInput);
-    //   const birthDate = e.target.value;
-    //   const phone = e.target.value;
-    //   const pin = e.target.value;
     eventPrice = amountOfTicketInput * eventPrice;
     eventPriceLabel.innerHTML = eventPrice;
-    // window.alert(value.data);
   };
 
   const backHandler = () => {
@@ -63,39 +57,53 @@ const ConfirmationIndex = ({ ninja }) => {
   };
 
   async function onSubmitForm() {
-    window.alert(amountOfTicket + phone + pin + birthDate + eventPrice);
-    router.push('/otp/' + ninja.id);
+    // window.alert(amountOfTicket + phone + pin + birthDate + eventPrice);
 
-    //   if (otpValue.length < 6) {
-    //     document.querySelector('.text-danger').innerHTML =
-    //       '  Otp code length should be greater than 6.';
-    //   } else if (otpValue.length > 8) {
-    //     document.querySelector('.text-danger').innerHTML =
-    //       '  Otp code length should be less than 8.';
-    //   } else {
-    //     let config = {
-    //       method: 'post',
-    //       url: 'http://localhost:3000/api/otp',
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //       },
-    //       data: otpValue,
-    //     };
+    if (phone.length < 9) {
+      document.querySelector('.phone-error').innerHTML =
+        '  Phone Number length should be greater than 6.';
+    } else if (phone.length > 11) {
+      document.querySelector('.phone-error').innerHTML =
+        '  Phone Number length should be less than 11.';
+    } else if (pin.length < 6) {
+      document.querySelector('.pin-error').innerHTML =
+        '  Pin Number length should be greater than 6.';
+    } else if (pin.length > 8) {
+      document.querySelector('.pin-error').innerHTML =
+        '  Pin Number length should be less than 8.';
+    } else {
+      const data = {
+        amountOfTicket: amountOfTicket,
+        phone: phone,
+        pin: pin,
+        birthDate: birthDate,
+        eventPrice: eventPrice,
+      };
 
-    //     try {
-    //       const response = await axios(config);
+      let config = {
+        method: 'post',
+        url: 'http://localhost:3000/api/data',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: data,
+      };
 
-    //       if (response.status == 200) {
-    //         reset();
-    //         window.alert('success');
-    //         router.push({ pathname: '/invoice/' + ninja.id });
-    //       }
-    //     } catch (err) {
-    //       window.alert(err);
-    //       router.push('/invoice/' + ninja.id);
-    //     }
-    //   }
+      try {
+        const response = await axios(config);
+
+        if (response.status == 200) {
+          reset();
+          window.alert('success');
+          router.push('/otp/' + ninja.id);
+        }
+      } catch (err) {
+        window.alert(err);
+        router.push('/otp/' + ninja.id);
+      }
+    }
   }
+
   return (
     <div className="container w-lg-50 w-sm-100  p-5  overflow-auto bg-light  shadow rounded-3 ">
       <p className="text-center fs-4 fw-bold pb-2"> Get Your Ticket</p>
@@ -152,7 +160,7 @@ const ConfirmationIndex = ({ ninja }) => {
             placeholder="please enter your phone number"
             required
           />
-          <div className="text-danger phone"></div>
+          <div className="text-danger phone-error"></div>
         </div>
         <div className="">
           <label className="form-label">PIN Number</label>
@@ -167,7 +175,7 @@ const ConfirmationIndex = ({ ninja }) => {
             placeholder="please enter your pin number"
             required
           />
-          <div className="text-danger pin"></div>
+          <div className="text-danger pin-error"></div>
         </div>
 
         <div className="">
@@ -182,7 +190,7 @@ const ConfirmationIndex = ({ ninja }) => {
               serBirthDate(e.currentTarget.value);
             }}
           />
-          <div className="text-danger bitrhDate"></div>
+          <div className="text-danger bitrhDate-error"></div>
         </div>
 
         <div className="col-12">
