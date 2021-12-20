@@ -61,7 +61,13 @@ const ConfirmationIndex = ({ ninja }) => {
   };
 
   async function onSubmitForm() {
-    window.alert(value.data);
+    window.alert(
+      value.data.amountOfTicket +
+        value.data.phone +
+        value.data.pin +
+        value.data.birthDate +
+        eventPrice
+    );
     router.push('/otp/' + ninja.id);
 
     //   if (otpValue.length < 6) {
