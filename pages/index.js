@@ -4,6 +4,7 @@ import { Button, Card } from 'react-bootstrap';
 import logo from '../public/logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export const getStaticProps = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -15,6 +16,10 @@ export const getStaticProps = async () => {
 };
 
 const Ninjas = ({ ninjas }) => {
+  const router = useRouter();
+  const nextHandler = () => {
+    router.push('/confirmation/' + ticket.id);
+  };
   return (
     <div className="w-80  p-5  overflow-auto bg-light  shadow rounded-3">
       <div className="row  gy-5 gx-lg-5 ">
@@ -49,15 +54,12 @@ const Ninjas = ({ ninjas }) => {
                     1000 ETB
                   </li>
                 </ul>
-                <Link
-                  href={'/confirmation/' + ticket.id}
-                  key={ticket.id}
-                  passHref
-                >
+                <Link key={ticket.id} passHref>
                   <a
                     href="#"
                     className="btn btn-primary  d-flex justify-content-center mt-2"
                     style={{ backgroundColor: 'purple', border: 'none' }}
+                    onClick={nextHandler}
                   >
                     Get Ticket
                   </a>
