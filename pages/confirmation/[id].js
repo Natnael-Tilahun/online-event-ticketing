@@ -51,15 +51,6 @@ const ConfirmationIndex = ({ ninja }) => {
     setAmountOfTicket = amountOfTicketInput.value;
     eventPrice = amountOfTicketInput * eventPrice;
     eventPriceLabel.innerHTML = eventPrice;
-  };
-
-  const backHandler = () => {
-    router.back();
-  };
-
-  async function onSubmitForm() {
-    // window.alert(amountOfTicket + phone + pin + birthDate + eventPrice);
-
     if (phone.length < 9) {
       document.querySelector('.phone-error').innerHTML =
         '  Phone Number length should be greater than 6.';
@@ -72,37 +63,47 @@ const ConfirmationIndex = ({ ninja }) => {
     } else if (pin.length > 8) {
       document.querySelector('.pin-error').innerHTML =
         '  Pin Number length should be less than 8.';
-    } else {
-      const data = {
-        amountOfTicket: amountOfTicket,
-        phone: phone,
-        pin: pin,
-        birthDate: birthDate,
-        eventPrice: eventPrice,
-      };
+    }
+  };
 
-      let config = {
-        method: 'post',
-        url: 'http://localhost:3000/api/data',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        data: data,
-      };
+  const backHandler = () => {
+    router.back();
+  };
 
-      try {
-        const response = await axios(config);
+  async function onSubmitForm() {
+    // window.alert(amountOfTicket + phone + pin + birthDate + eventPrice);
 
-        if (response.status == 200) {
-          reset();
-          window.alert('success');
-          router.push('/otp/' + ninja.id);
-        }
-      } catch (err) {
-        window.alert(err);
+    //  else {
+    const data = {
+      amountOfTicket: amountOfTicket,
+      phone: phone,
+      pin: pin,
+      birthDate: birthDate,
+      eventPrice: eventPrice,
+    };
+
+    let config = {
+      method: 'post',
+      url: 'http://localhost:3000/api/data',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: data,
+    };
+
+    try {
+      const response = await axios(config);
+
+      if (response.status == 200) {
+        reset();
+        window.alert('success');
         router.push('/otp/' + ninja.id);
       }
+    } catch (err) {
+      window.alert(err);
+      router.push('/otp/' + ninja.id);
     }
+    // }
   }
 
   return (
