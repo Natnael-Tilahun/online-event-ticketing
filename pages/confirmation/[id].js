@@ -34,8 +34,9 @@ export const getStaticProps = async (context) => {
 const ConfirmationIndex = ({ ninja }) => {
   const router = useRouter();
   const { register, handleSubmit, errors, reset } = useForm();
-  const amountOfTicketInput = document.querySelector('.form-select').value;
-  const eventPriceLabel = document.querySelector('.event-price');
+  const amountOfTicketInput =
+    window.document.querySelector('.form-select').value;
+  const eventPriceLabel = window.document.querySelector('.event-price');
 
   // const amountOfTicket = 1;
   const eventPrice = 1000;
