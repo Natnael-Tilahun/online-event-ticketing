@@ -105,7 +105,9 @@ const Confirmation = ({ ninja }) => {
             }}
             required
           />
-          <div className="invalid-feedback"> error message</div>
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid entry.
+          </Form.Control.Feedback>
         </div>
 
         <div className="col-12">
