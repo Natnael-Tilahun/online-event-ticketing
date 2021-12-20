@@ -135,7 +135,7 @@ const ConfirmationIndex = ({ ninja }) => {
             <Button
               className="btn mx-4 px-4 border-0"
               type="submit"
-              onClick={routerHandler}
+              // onClick={routerHandler}
               style={{ backgroundColor: 'purple', color: 'white' }}
             >
               Next
