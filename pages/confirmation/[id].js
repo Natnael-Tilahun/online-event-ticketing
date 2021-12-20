@@ -73,6 +73,8 @@ const ConfirmationIndex = ({ ninja }) => {
       document.querySelector('.pin-error').innerHTML =
         '  Pin Number length should be less than 8.';
     } else {
+      document.querySelector('.phone-error').innerHTML = '';
+      document.querySelector('.pin-error').innerHTML = '';
       const data = {
         amountOfTicket: amountOfTicket,
         phone: phone,
