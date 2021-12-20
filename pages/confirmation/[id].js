@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { Button, Form } from 'react-bootstrap';
 import router, { useRouter } from 'next/router';
+import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 
 export const getStaticPaths = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -30,26 +32,62 @@ export const getStaticProps = async (context) => {
 
 const ConfirmationIndex = ({ ninja }) => {
   const router = useRouter();
+  const [value, setValue] = useState();
+  const { register, handleSubmit, errors, reset } = useForm();
   const amountOfTicket = 1;
   const eventPrice = 1000;
+  const data = {
+    amountOfTicket: '',
+    phone: '',
+    pin: '',
+    birthDate: '',
+  };
   const onChangeHandler = (e) => {
-    // const amountOfTicket = document.querySelector('.form-select').value;
-    const amountOfTicket = e.target.value;
-    const birthDate = e.target.value;
-    const phone = e.target.value;
-    const pin = e.target.value;
+    //   // const amountOfTicket = document.querySelector('.form-select').value;
+    // const amountOfTicket = e.target.value;
+    //   const birthDate = e.target.value;
+    //   const phone = e.target.value;
+    //   const pin = e.target.value;
     const eventpriceLabel = document.querySelector('.event-price');
-    const eventPrice = amountOfTicket * 1000;
+    const eventPrice = value.data.amountOfTicket * 1000;
     eventpriceLabel.innerHTML = eventPrice;
-    window.alert(amountOfTicket + birthDate + phone + pin);
+    window.alert(value.data);
   };
   const backHandler = () => {
     router.back();
   };
 
-  // const routerHandler = () => {
-  //   router.push('/otp/' + ninja.id);
-  // };
+  // async function onSubmitForm() {
+  //   if (otpValue.length < 6) {
+  //     document.querySelector('.text-danger').innerHTML =
+  //       '  Otp code length should be greater than 6.';
+  //   } else if (otpValue.length > 8) {
+  //     document.querySelector('.text-danger').innerHTML =
+  //       '  Otp code length should be less than 8.';
+  //   } else {
+  //     let config = {
+  //       method: 'post',
+  //       url: 'http://localhost:3000/api/otp',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       data: otpValue,
+  //     };
+
+  //     try {
+  //       const response = await axios(config);
+
+  //       if (response.status == 200) {
+  //         reset();
+  //         window.alert('success');
+  //         router.push({ pathname: '/invoice/' + ninja.id });
+  //       }
+  //     } catch (err) {
+  //       window.alert(err);
+  //       router.push('/invoice/' + ninja.id);
+  //     }
+  //   }
+  // }
   return (
     <div className="container w-lg-50 w-sm-100  p-5  overflow-auto bg-light  shadow rounded-3 ">
       <p className="text-center fs-4 fw-bold pb-2"> Get Your Ticket</p>
@@ -72,6 +110,7 @@ const ConfirmationIndex = ({ ninja }) => {
       <Form
         className="row g-3 needs-validation justify-content-center"
         novalidate
+        onSubmit={handleSubmit(onSubmitForm)}
       >
         <div className="pt-3">
           <label className="form-label">Number of tickets</label>
@@ -79,7 +118,7 @@ const ConfirmationIndex = ({ ninja }) => {
             name="ticketNumber"
             className="form-select "
             aria-label="Default select example"
-            onChange={onChangeHandler}
+            onChange={setValue.data.amountOfTicket}
           >
             <option selected disabled>
               Select the amount of ticket
@@ -99,11 +138,11 @@ const ConfirmationIndex = ({ ninja }) => {
             name="phone"
             className="form-control"
             id="validationCustom01"
-            onChange={onChangeHandler}
+            onChange={setValue.data.phone}
             placeholder="please enter your phone number"
             required
           />
-          <div className="valid-feedback">Looks good!</div>
+          <div className="text-danger phone"></div>
         </div>
         <div className="">
           <label className="form-label">PIN Number</label>
@@ -112,11 +151,11 @@ const ConfirmationIndex = ({ ninja }) => {
             name="pin"
             className="form-control"
             id="validationCustom02"
-            onChange={onChangeHandler}
+            onChange={setValue.data.pin}
             placeholder="please enter your pin number"
             required
           />
-          <div className="valid-feedback">Looks good!</div>
+          <div className="text-danger pin"></div>
         </div>
 
         <div className="">
@@ -127,11 +166,9 @@ const ConfirmationIndex = ({ ninja }) => {
             className="form-control"
             id="validationCustom05"
             required
-            onChange={onChangeHandler}
+            onChange={setValue.data.birthDate}
           />
-          <div className="invalid-feedback">
-            Please provide a valid birth date.
-          </div>
+          <div className="text-danger bitrhDate"></div>
         </div>
 
         <div className="col-12">
