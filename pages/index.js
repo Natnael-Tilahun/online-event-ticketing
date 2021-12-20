@@ -52,7 +52,6 @@ const Ninjas = ({ ninjas }) => {
                 </ul>
                 <Link
                   href={'/confirmation/' + ticket.id}
-                  as="homepage"
                   key={ticket.id}
                   passHref
                   replace
