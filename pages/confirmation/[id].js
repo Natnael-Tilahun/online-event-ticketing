@@ -34,32 +34,30 @@ export const getStaticProps = async (context) => {
 const ConfirmationIndex = ({ ninja }) => {
   const router = useRouter();
   const { register, handleSubmit, errors, reset } = useForm();
+  const [amountOfTicket, setAmountOfTicket] = useState(1);
+  const [phone, setPhone] = useState();
+  const [pin, setPin] = useState();
+  const [birthDate, serBirthDate] = useState();
+  const [eventPrice, setEventPrice] = useState(1000);
 
   // const amountOfTicket = 1;
-  const eventPrice = 1000;
-  let defaultState = {
-    data: {
-      amountOfTicket: '1',
-      phone: '',
-      pin: '',
-      birthDate: '',
-    },
-  };
-  const [value, setValue] = useState(defaultState);
+  // const eventPrice = 1000;
+  // const [value, setValue] = useState(defaultState);
 
   const onChangeHandler = () => {
     const amountOfTicketInput = document.querySelector('.form-select').value;
     const eventPriceLabel = document.querySelector('.event-price');
 
-    setValue.data.amountOfTicket = amountOfTicketInput.value;
-    window.alert(value.data.amountOfTicket);
+    setAmountOfTicket = amountOfTicketInput.value;
+    window.alert(amountOfTicketInput);
     //   const birthDate = e.target.value;
     //   const phone = e.target.value;
     //   const pin = e.target.value;
-    const eventPrice = value.data.amountOfTicket * 1000;
+    eventPrice = amountOfTicketInput * eventPrice;
     eventPriceLabel.innerHTML = eventPrice;
     // window.alert(value.data);
   };
+
   const backHandler = () => {
     router.back();
   };
@@ -155,7 +153,7 @@ const ConfirmationIndex = ({ ninja }) => {
             className="form-control"
             id="validationCustom01"
             onChange={(e) => {
-              setValue.data.phone(e.currentTarget.value);
+              setPhone(e.currentTarget.value);
             }}
             placeholder="please enter your phone number"
             required
@@ -170,7 +168,7 @@ const ConfirmationIndex = ({ ninja }) => {
             className="form-control"
             id="validationCustom02"
             onChange={(e) => {
-              setValue.data.pin(e.currentTarget.value);
+              setPin(e.currentTarget.value);
             }}
             placeholder="please enter your pin number"
             required
@@ -187,7 +185,7 @@ const ConfirmationIndex = ({ ninja }) => {
             id="validationCustom05"
             required
             onChange={(e) => {
-              setValue.data.birthDate(e.currentTarget.value);
+              serBirthDate(e.currentTarget.value);
             }}
           />
           <div className="text-danger bitrhDate"></div>
