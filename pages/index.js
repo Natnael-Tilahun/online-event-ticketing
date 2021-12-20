@@ -55,13 +55,14 @@ const Ninjas = ({ ninjas }) => {
                   </li>
                 </ul>
                 {/* <Link key={ticket.id} passHref> */}
-                <Button
+                <a
+                  href=""
                   className="btn btn-primary  d-flex justify-content-center mt-2"
                   style={{ backgroundColor: 'purple', border: 'none' }}
                   onClick={nextHandler}
                 >
                   Get Ticket
-                </Button>
+                </a>
                 {/* </Link> */}
               </div>
             </div>
